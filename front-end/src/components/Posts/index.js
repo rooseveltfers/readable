@@ -20,8 +20,6 @@ class Posts extends Component {
 
   actionPost(e, post) {
     e.preventDefault();
-    //console.log(e.target.name)
-    //console.log(comment)
 
     switch (e.target.name) {
       case "up":
@@ -64,7 +62,7 @@ class Posts extends Component {
           <div className="card margin-bottom card-border" key={post.id}>
             <div className="card-body">
               <h4 className="card-title">
-                <a href={'/post/' + post.id} className="font-weight-bold">
+                <a href={`/${post.category}/${post.id}`} className="font-weight-bold">
                   {post.title}
                 </a>
               </h4>
@@ -98,7 +96,6 @@ class Posts extends Component {
 }
 
 const mapStateToProps = (state) => {
-  //console.log('state', state)
   return { posts: state.posts.posts }
 }
 

@@ -6,10 +6,8 @@ import { getCategories } from './actions'
 
 class Categories extends Component {
 
-  componentWillMount() {
-    //const categories = 
+  componentDidMount() {
     this.props.getCategories()
-    //console.log('props', this.props)
   }
 
   render() {
@@ -31,7 +29,6 @@ class Categories extends Component {
 }
 
 const mapStateToProps = (state) => {
-  //console.log('state', state)
   return { categories: state.categories.categories }
 }
 

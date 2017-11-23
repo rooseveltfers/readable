@@ -16,7 +16,7 @@ import {
 
 class FormPost extends Component {
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getCategories()
     const param = this.props.match.params.id;
     if (param !== 'new') {

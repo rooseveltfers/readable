@@ -7,7 +7,7 @@ import { getPosts, reorderPosts, votePostUp, votePostDown } from './actions'
 
 class Category extends Component {
 
-  componentWillMount() {
+  componentDidMount() {
     const categoryId = this.props.match.params.id
     this.props.getPosts(categoryId)
   }
@@ -19,8 +19,6 @@ class Category extends Component {
 
   actionPost(e, post) {
     e.preventDefault();
-    //console.log(e.target.name)
-    //console.log(comment)
 
     switch (e.target.name) {
       case "up":
@@ -40,6 +38,7 @@ class Category extends Component {
   render() {
     return (
       <div className="row">
+        <a href="/" style={{ paddingTop: 15 }}>Back to Home</a>
 
         <div className="col-sm-12 no-padding">
           <div className="col-sm-10 no-padding">
@@ -63,7 +62,7 @@ class Category extends Component {
           <div className="card margin-bottom card-border" key={post.id}>
             <div className="card-body">
               <h4 className="card-title">
-                <a href={'/post/' + post.id} className="font-weight-bold">
+                <a href={`/${post.category}/${post.id}`} className="font-weight-bold">
                   {post.title}
                 </a>
               </h4>
